@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -24,7 +25,8 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @PropertySource("classpath:database-persistence.properties")
-@EnableJpaRepositories(enableDefaultTransactions = true)
+@EntityScan(basePackages = "br.com.va4e.gidac.entity")
+@EnableJpaRepositories(enableDefaultTransactions = true , basePackages = "br.com.va4e.gidac.repository")
 @EnableTransactionManagement
 public class DatabaseConfig {
 

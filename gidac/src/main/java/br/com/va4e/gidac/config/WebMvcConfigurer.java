@@ -3,6 +3,7 @@ package br.com.va4e.gidac.config;
 import java.util.Locale;
 
 import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,23 +27,11 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 @ComponentScan
 public class WebMvcConfigurer extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 	
+	private ApplicationContext applicationContext;
 	
-	
-	
-	// private ApplicationContext applicationContext;
-
-
 	    public WebMvcConfigurer() {
 	        super();
 	    }
-
-/*
-	    public void setApplicationContext(final ApplicationContext applicationContext)
-	            throws BeansException {
-	        applicationContext = applicationContext;
-	    }
-
-*/
 
 	    /* ******************************************************************* */
 	    /*  GENERAL CONFIGURATION ARTIFACTS                                    */
@@ -136,7 +125,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter implements Applica
 		@Override
 		public void setApplicationContext(org.springframework.context.ApplicationContext applicationContext)
 				throws BeansException {
-			// TODO Auto-generated method stub
+			this.applicationContext = applicationContext;
 			
 		}
 	

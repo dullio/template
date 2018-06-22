@@ -17,11 +17,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import br.com.va4e.gidac.models.AuditModel;
-
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = { "firstName", "lastName" }), name = "members")
-public class Member extends AuditModel implements Serializable {
+public class Member implements Serializable {
 
 	public Member(String firstName, String lastName, String userName, String cpf, String rg, String gender, String note,
 			boolean active, Date birthday) {
@@ -161,10 +159,5 @@ public class Member extends AuditModel implements Serializable {
 		this.userName = userName;
 	}
 
-	/*
-	 * //@Override public String toString() { return "Member [id=" + id +
-	 * ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" +
-	 * userName + "]"; }
-	 */
 
 }
